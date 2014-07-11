@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Evento tactil JavaScript</title>
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript">
+
+$(function(){
+	var i=$("#i1");
+	var xIni, yIni;
+	
+	i.on('touchstar',function(e){
+		xIni=e.targetTouches[0].pageX;
+		yIni=e.targetTouches[0].pageY;
+		});
+		i.on('touchmove',function(e){
+			if(e.targetTouches[0].pageX > xIni+10)i.attr("src","images/img2.png");
+			if(e.targetTouches[0].pageX < xIni-10)i.attr("src","images/img1.png");
+			
+			});
+	
+	});
+</script>
+
+</head>
+
+<body>
+<h4>Evento Touch</h4>
+<img src="images/img1.png"  width="300" height="300" id="i1"/>
+</body>
+</html>
